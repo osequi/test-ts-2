@@ -16,3 +16,10 @@ export function getBreakpointValue(name: TBreakpointNames): number | undefined {
   const breakpoint = breakpoints.find((item) => item.name === name);
   return breakpoint?.value || undefined;
 }
+
+export function getMediaQueryForBreakpoint(
+  name: TBreakpointNames
+): string | undefined {
+  const value = getBreakpointValue(name);
+  return value ? `@media(min-width: ${value}px)` : undefined;
+}
